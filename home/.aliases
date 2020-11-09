@@ -1,0 +1,7 @@
+alias v=nvim
+alias p=podman
+alias clipboard='xclip -sel clip'
+alias c=clear
+alias t=tmux
+alias l='ls -1'
+alias tree='tree -I "node_modules|dist|__pycache__|build|bin"'

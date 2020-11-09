@@ -1,0 +1,8 @@
+[user]
+	name = bernalcarl24
+	email = carlbernal24@gmail.com
+[core]
+	editor = nvim
+[diff]
+	tool = vimdiff
+	prompt = false

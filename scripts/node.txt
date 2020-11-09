@@ -1,0 +1,4 @@
+prettier
+eslint
+typescript
+firebase
