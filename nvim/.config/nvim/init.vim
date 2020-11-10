@@ -1,10 +1,4 @@
-if empty(glob('~/.local/share/nvim/plugged'))
-  silent !curl -fLo ~/.local/share/nvim/plugged --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.vim/plugged')
   
 " misc
 Plug 'jiangmiao/auto-pairs'
@@ -28,10 +22,6 @@ Plug 'michaeljsmith/vim-indent-object'
 
 " language support
 Plug 'sheerun/vim-polyglot'
-
-" fuzzy search
-Plug '~/.fzf'
-Plug 'junegunn/fzf.vim'
 
 " show git status in gutter
 Plug 'airblade/vim-gitgutter'
@@ -78,7 +68,6 @@ set tabstop=4
 nnoremap <silent><space><space> :noh<cr>
 
 nnoremap <silent><c-s> :update<cr>
-nnoremap <silent><c-p> :FZF<cr>
 nnoremap <silent><c-h> :bp<cr>
 nnoremap <silent><c-l> :bn<cr>
 
@@ -86,44 +75,6 @@ nnoremap <silent><c-l> :bn<cr>
 
 " lightline
 let g:lightline#bufferline#enable_devicons=1
-
-" fzf
-let g:fzf_nvim_statusline=0
-
-" fzf window
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-"TODO make width flexible
-function! FloatingFZF()
-	" position
-	let height = float2nr(30)
-	let width = float2nr(70)
-	let horizontal = float2nr((&columns - width) / 2)
-	let vertical = float2nr(5 / 2)
-	let opts = {
-				\ 'relative': 'editor',
-				\ 'row': vertical,
-				\ 'col': horizontal,
-				\ 'width': width,
-				\ 'height': height,
-				\ 'style': 'minimal'
-				\ }
-	" border
-	let top = "╭" . repeat("─", width - 2) . "╮"
-	let mid = "│" . repeat(" ", width - 2) . "│"
-	let bot = "╰" . repeat("─", width - 2) . "╯"
-	let lines = [top] + repeat([mid], height - 2) + [bot]
-	let s:buf = nvim_create_buf(v:false, v:true)
-	call nvim_buf_set_lines(s:buf, 0, -1, v:true, lines)
-	call nvim_open_win(s:buf, v:true, opts)
-	set winhl=Normal:Floating
-	let opts.row += 1
-	let opts.height -= 2
-	let opts.col += 2
-	let opts.width -= 4
-
-	call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
-	au BufWipeout <buffer> exe 'bw '.s:buf
-endfunction
 
 """ color theme helper groups
 
