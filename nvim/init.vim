@@ -1,12 +1,19 @@
 call plug#begin('~/.vim/plugged')
   
 " misc
+Plug 'mattn/emmet-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'psliwka/vim-smoothie'
+Plug 'ludovicchabant/vim-gutentags'
+
+" vim improvements
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-vinegar'
+Plug 'ajh17/VimCompletesMe'
 
 " visual
 Plug 'itchyny/lightline.vim'
-Plug 'ryanoasis/vim-devicons'
+Plug 'airblade/vim-gitgutter'
 Plug 'w0ng/vim-hybrid'
 
 " custom verbs
@@ -19,12 +26,18 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'wellle/targets.vim'
+
+" custom commands
+Plug 'vim-scripts/a.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-eununch'
+Plug 'vim-test/vim-test'
 
 " language support
 Plug 'sheerun/vim-polyglot'
-
-" show git status in gutter
-Plug 'airblade/vim-gitgutter'
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
 
 call plug#end()
 
@@ -36,13 +49,10 @@ set clipboard+=unnamedplus
 set ruler
 set updatetime=100 
 
-autocmd CursorMoved * exe printf('match HiUnderCursor /\V\<%s\>/',
-			\ escape(expand('<cword>'), '/\'))
 
 " visual
 filetype plugin indent on
 syntax on
-set background=dark
 colorscheme hybrid
 set cursorline
 set termguicolors
@@ -56,6 +66,8 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+set wildmenu
+set grepprg=ag\ --vimgrep\ $*
 
 " default tabs and indent
 set smarttab
@@ -64,17 +76,33 @@ set smartindent
 set shiftwidth=4
 set tabstop=4
 
+" omni completion
+set shortmess+=c
+set completeopt-=preview
+" autocmd CompleteDone * pclose
+
+autocmd CursorMoved * exe printf('match HiUnderCursor /\V\<%s\>/',
+			\ escape(expand('<cword>'), '/\'))
+
 """ shortcuts
 nnoremap <silent><space><space> :noh<cr>
-
 nnoremap <silent><c-s> :update<cr>
 nnoremap <silent><c-h> :bp<cr>
 nnoremap <silent><c-l> :bn<cr>
+nnoremap == :FormatCode<cr>
 
 """ plugins settings
 
-" lightline
-let g:lightline#bufferline#enable_devicons=1
+" python
+let g:python_highlight_all = 1
+
+" emmet
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+let g:user_emmet_leader_key=','
+
+" use dispatch for vim-test
+let test#strategy = "dispatch"
 
 """ color theme helper groups
 
@@ -83,6 +111,7 @@ hi! link GitGutterAdd GitAddStripe
 hi! link GitGutterChange GitChangeStripe
 hi! link GitGutterDelete GitDeleteStripe
 
+" search highlighting
 hi Search guibg=#343945 guifg=none
 hi HiUnderCursor guibg=#3b424f guifg=none
 hi QuickFixLine guibg=#3b424f guifg=none

@@ -18,16 +18,6 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-# pip
-echo "Installing pip packages..."
-pip3 install -r ~/Dotfiles/scripts/requirements.txt
-
-# node
-echo "Installing nvm and node..."
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | zsh
-nvm install --lts
-xargs -a ~/Dotfiles/scripts/node.txt npm install -g
-
 # fzf
 echo "Installing fzf..."
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -58,6 +48,8 @@ sudo apt-get -y install podman
 # setup dotfiles
 echo "Setting up dotfiles..."
 stow ~/Dotfiles/home ~/Dotfiles/vscode ~/Dotfiles/nvim
+
+source ~/.zshrc
 
 # laptop config
 echo "Setting up laptop configs..."

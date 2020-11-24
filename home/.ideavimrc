@@ -35,8 +35,8 @@ nnoremap gs :action GotoSymbol<cr>
 nnoremap gt :action GotoTest<cr>
 nnoremap gi :action GotoImplementation<cr>
 
-nnoremap M :action GotoNextError<cr>
-nnoremap N :action GotoPreviousError<cr>
+nnoremap <c-m> :action GotoNextError<cr>
+nnoremap <c-n> :action GotoPreviousError<cr>
 
 nnoremap R :action RenameElement<cr>
 nnoremap U :action FindUsages<cr>

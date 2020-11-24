@@ -2,7 +2,6 @@ zsh
 git
 curl
 wget
-build-essential
 apt-transport-https
 neovim
 silversearcher-ag
