@@ -96,13 +96,17 @@ fi
 
 ## user configs
 
-#* WSL FIX
 # go to ~ dir for new sessions
 cd ~
 
 # path exports
-export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/Bin:$PATH
+
+# python user bin
+export PATH=$HOME/.local/bin:$PATH
+
+# golang
+export PATH=/usr/local/go/bin:$PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
