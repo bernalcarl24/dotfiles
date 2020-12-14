@@ -6,11 +6,12 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'psliwka/vim-smoothie'
 
 " vim improvements
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-vinegar'
 Plug 'justinmk/vim-sneak'
-" Plug 'ajh17/VimCompletesMe'
+" Plug 'tpope/vim-dispatch'
+" Plug 'romainl/vim-qf'
 " Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ajh17/VimCompletesMe'
 
 " visual
 Plug 'airblade/vim-gitgutter'
@@ -30,9 +31,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
 
 " custom commands
-Plug 'vim-scripts/a.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-eunuch'
 Plug 'vim-test/vim-test'
 
 " language support
@@ -75,6 +74,8 @@ set autoindent
 set smartindent
 set shiftwidth=4
 set tabstop=4
+set softtabstop=4
+set expandtab
 
 " omni completion
 set shortmess+=c
@@ -102,21 +103,25 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 let g:user_emmet_leader_key=','
 
-" use dispatch for vim-test
-let test#strategy = "dispatch"
+" " use quickfix window for test
+" let test#strategy = "dispatch"
 
 """ coc settings
 
 " use tab for completion
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" use enter to confirm autocompletion
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
