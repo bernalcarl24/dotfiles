@@ -1,0 +1,9 @@
+[Unit]
+Description=powertop tunings
+
+[Service]
+Type=oneshot
+ExecStart=/home/carlbernal/scripts/pt-at
+
+[Install]
+WantedBy=multi-user.target

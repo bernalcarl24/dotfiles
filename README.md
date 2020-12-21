@@ -1,3 +1,3 @@
 # Dotfiles
 
-Welcome to my dotfiles
+Welcome to my dotfiles (and scripts)

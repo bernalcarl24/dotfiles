@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# script for setting up flask development variables automatically
+
+# note: executing this script will create new process. export and source will
+# be gone after killing the process
+
+if [[ -z ${VIRTUAL_ENV} ]]; then
+	if [[ -d ".venv" ]]; then
+		echo "venv is not sourced. sourcing .venv ..."
+		source .venv/bin/activate
+	else
+		echo "can't find .venv. please create .venv or rename it to .venv"
+	fi
+fi
+
+if [[ -z ${FLASK_APP} ]]; then
+	echo "FLASK_APP variable missing. setting it now..."
+	if [[ -z $1 ]]; then
+		echo "No arg passed. setting FLASK_APP var to app.py"
+		export FLASK_APP=app.py
+	else
+		export FLASK_APP=$1
+	fi
+fi
+
+if [[ -z ${FLASK_ENV} ]]; then
+	echo "FLASK_ENV variable missing. setting it now..."
+	export FLASK_ENV=development
+fi
+
+flask run
