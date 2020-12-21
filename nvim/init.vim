@@ -90,13 +90,17 @@ nnoremap <silent><space><space> :noh<cr>
 nnoremap <silent><c-s> :update<cr>
 nnoremap <silent><c-h> :bp<cr>
 nnoremap <silent><c-l> :bn<cr>
-nnoremap <silent><c-n> :cnext<cr>
-nnoremap <silent><c-m> :cprevious<cr>
 nnoremap == :FormatCode<cr>
 nmap R <plug>(coc-rename)
 
 autocmd FileType go nnoremap == :GoFmt<cr>
 autocmd FileType go nnoremap R :GoRename<cr>
+
+" coc goto code navigations
+nmap <silent>gd <Plug>(coc-definition)
+nmap <silent>gy <Plug>(coc-type-definition)
+nmap <silent>gi <Plug>(coc-implementation)
+nmap <silent>gr <Plug>(coc-references)
 
 """ plugins settings
 
@@ -114,10 +118,18 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 let g:user_emmet_leader_key=','
 
-" test
-let test#strategy = "dispatch"
-
 """ coc settings
+
+let g:coc_global_extensions = [
+    \ 'coc-tsserver',
+    \ 'coc-python',
+    \ 'coc-pyright',
+    \ 'coc-json',
+    \ 'coc-go',
+    \ 'coc-clangd',
+    \ 'coc-cmake',
+    \ 'coc-sql',
+    \]
 
 " use tab for completion
 inoremap <silent><expr> <TAB>
@@ -146,12 +158,6 @@ function! s:show_documentation()
 		call CocAction('doHover')
 	endif
 endfunction
-
-" go to code navigations
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 
 """ color theme helper groups
 
