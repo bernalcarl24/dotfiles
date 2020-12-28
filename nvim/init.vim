@@ -36,6 +36,7 @@ Plug 'vim-scripts/a.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
+Plug 'SirVer/ultisnips'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
 
@@ -48,6 +49,8 @@ set mouse=a
 set clipboard+=unnamedplus
 set ruler
 set updatetime=300 
+set autowrite
+let mapleader = "<nop>"
 
 " visual
 filetype plugin indent on
@@ -93,8 +96,13 @@ nnoremap <silent><c-l> :bn<cr>
 nnoremap == :FormatCode<cr>
 nmap R <plug>(coc-rename)
 
+" vim-go overrides
 autocmd FileType go nnoremap == :GoFmt<cr>
 autocmd FileType go nnoremap R :GoRename<cr>
+
+" coc diagnostics
+nmap <silent><c-m> <Plug>(coc-diagnostic-next)
+nmap <silent><c-n> <Plug>(coc-diagnostic-prev)
 
 " coc goto code navigations
 nmap <silent>gd <Plug>(coc-definition)
@@ -110,13 +118,21 @@ let g:python_highlight_all = 1
 " golang
 let g:go_code_completion_enabled = 0
 let g:go_doc_keywordprg_enabled = 0
+let g:go_def_mapping_enabled = 0
 let g:go_play_open_browser = 0
 let g:go_fmt_autosave = 0
+let g:go_list_type = "quickfix"
+let g:go_fmt_command = "goimports"
 
 " emmet
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 let g:user_emmet_leader_key=','
+
+" snippets
+let g:UltiSnipsExpandTrigger = '<nop>'
+let g:UltiSnipsJumpForwardTrigger = '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 
 """ coc settings
 
@@ -129,6 +145,7 @@ let g:coc_global_extensions = [
     \ 'coc-clangd',
     \ 'coc-cmake',
     \ 'coc-sql',
+    \ 'coc-snippets',
     \]
 
 " use tab for completion

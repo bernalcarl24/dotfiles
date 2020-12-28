@@ -3,6 +3,8 @@ alias p=podman
 alias clipboard='xclip -sel clip'
 alias c=clear
 alias t=tmux
+alias rm="rm -ir"
+alias gitlog="git log --oneline | head -20 | cat"
 
 alias l='ls -1X \
 -I "__pycache__" \

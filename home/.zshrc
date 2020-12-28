@@ -2,7 +2,10 @@ export ZSH="/home/carlbernal/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
+export NVM_LAZY_LOAD=true
+
 plugins=( \
+    zsh-nvm \
     git \
     colored-man-pages \
     zsh-syntax-highlighting \
@@ -17,7 +20,7 @@ source ~/.aliases
 # python3 user bin
 export PATH=$HOME/.local/bin:$PATH
 
-# golang
+# golang user bin
 export PATH=/usr/local/go/bin:$PATH
 
 # personal bin

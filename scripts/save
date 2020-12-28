@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# quickly save notes to git
+
+git add . && \
+git commit -m "$(date)"
