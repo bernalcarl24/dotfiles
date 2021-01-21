@@ -22,6 +22,7 @@ export PATH=$HOME/.local/bin:$PATH
 
 # golang user bin
 export PATH=/usr/local/go/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
 
 # personal bin
 export PATH=$HOME/bin:$PATH
@@ -29,3 +30,7 @@ export PATH=$HOME/scripts:$PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/carlbernal/.sdkman"
+[[ -s "/home/carlbernal/.sdkman/bin/sdkman-init.sh" ]] && source "/home/carlbernal/.sdkman/bin/sdkman-init.sh"

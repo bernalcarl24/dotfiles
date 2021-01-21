@@ -87,6 +87,16 @@ set shortmess+=c
 autocmd CursorMoved * exe printf('match HiUnderCursor /\V\<%s\>/',
 			\ escape(expand('<cword>'), '/\'))
 
+" quickfix window
+au FileType qf setlocal nonumber
+au FileType qf setlocal norelativenumber
+au FileType qf setlocal signcolumn=no
+au FileType qf setlocal colorcolumn=
+aug QFClose
+  au!
+  au WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
+aug END
+
 """ shortcuts
 
 nnoremap <silent><space><space> :noh<cr>
@@ -97,8 +107,8 @@ nnoremap == :FormatCode<cr>
 nmap R <plug>(coc-rename)
 
 " vim-go overrides
-autocmd FileType go nnoremap == :GoFmt<cr>
-autocmd FileType go nnoremap R :GoRename<cr>
+autocmd FileType go nnoremap <buffer> == :GoFmt<cr>
+autocmd FileType go nnoremap <buffer> R :GoRename<cr>
 
 " coc diagnostics
 nmap <silent><c-m> <Plug>(coc-diagnostic-next)
@@ -146,6 +156,8 @@ let g:coc_global_extensions = [
     \ 'coc-cmake',
     \ 'coc-sql',
     \ 'coc-snippets',
+    \ 'coc-css',
+    \ 'coc-yaml',
     \]
 
 " use tab for completion
