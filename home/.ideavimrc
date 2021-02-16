@@ -25,7 +25,9 @@ set showmode
 " intellij keymaps
 nnoremap == :action ReformatCode<cr>
 nnoremap <c-w> :action CloseContent<cr>
+nnoremap <c-tab> :action NextTab<cr>
 nnoremap <c-l> :action NextTab<cr>
+nnoremap <c-s-tab> :action PreviousTab<cr>
 nnoremap <c-h> :action PreviousTab<cr>
 nnoremap <c-p> :action SearchEverywhere<cr>
 

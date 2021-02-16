@@ -1,90 +1,92 @@
 {
-    "update.mode": "start",
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
-    "extensions.ignoreRecommendations": true,
-    "workbench.enableExperiments": false,
-    "workbench.settings.enableNaturalLanguageSearch": false,
+  "update.mode": "start",
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "extensions.ignoreRecommendations": true,
+  "workbench.enableExperiments": false,
+  "workbench.settings.enableNaturalLanguageSearch": false,
 
-    // gui
-    "window.zoomLevel": 0.9,
-    "window.titleBarStyle": "custom",
-    "breadcrumbs.enabled": true,
-    "editor.autoClosingBrackets": "always",
-    "workbench.iconTheme": "material-icon-theme",
-    "editor.fontFamily": "'RobotoMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "editor.minimap.enabled": false,
-    "workbench.activityBar.visible": true,
-    "workbench.colorTheme": "Default Dark+",
+  // gui
+  "window.zoomLevel": 1,
+  "window.titleBarStyle": "custom",
+  "breadcrumbs.enabled": true,
+  "editor.autoClosingBrackets": "always",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontFamily": "'RobotoMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.minimap.enabled": false,
+  "workbench.activityBar.visible": true,
+  "workbench.colorTheme": "Default Dark+",
 
-    // editor
-    "keyboard.dispatch": "keyCode",
-    "editor.rulers": [80],
-    "editor.fontSize": 13.5,
-    "editor.detectIndentation": true,
-    "terminal.integrated.fontSize": 13,
-    "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 2000,
-    "explorer.confirmDragAndDrop": false,
-    "workbench.startupEditor": "none",
+  // editor
+  "keyboard.dispatch": "keyCode",
+  "editor.rulers": [80],
+  "editor.fontSize": 13,
+  "editor.detectIndentation": true,
+  "terminal.integrated.fontSize": 13,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 2000,
+  "explorer.confirmDragAndDrop": false,
+  "workbench.startupEditor": "none",
 
-    // vim
-    "vim.history": 10,
-    "editor.smoothScrolling": true,
-    "editor.lineNumbers": "relative",
-    "editor.cursorBlinking": "solid",
-    "vim.useSystemClipboard": true,
-    "vim.replaceWithRegister": true,
-    "vim.sneak": true,
-    "vim.hlsearch": true,
-    "vim.vimrc.enable": true,
-    "vim.vimrc.path": "~/.vscodevimrc",
-    "vim.handleKeys": {
-        "<C-w>": false,
-        "<S-k>": false
+  // vim
+  "vim.history": 10,
+  "editor.smoothScrolling": true,
+  "editor.lineNumbers": "relative",
+  "editor.cursorBlinking": "solid",
+  "vim.useSystemClipboard": true,
+  "vim.replaceWithRegister": true,
+  "vim.sneak": true,
+  "vim.hlsearch": true,
+  "vim.vimrc.enable": true,
+  "vim.vimrc.path": "~/.vscodevimrc",
+  "vim.handleKeys": {
+    "<C-w>": false,
+    "<S-k>": false
+  },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      // Remap quick documentation to shift + k
+      "before": ["K"],
+      "after": ["g", "h"]
     },
-    "vim.normalModeKeyBindingsNonRecursive": [{
-            // Remap quick documentation to shift + k
-            "before": ["K"],
-            "after": ["g", "h"]
-        },
-        {
-            "before": ["=", "="],
-            "commands": ["editor.action.formatDocument"]
-        }
-    ],
+    {
+      "before": ["=", "="],
+      "commands": ["editor.action.formatDocument"]
+    }
+  ],
 
-    // hide files and folders
-    "files.exclude": {
-        "**/.classpath": true,
-        "**/.factorypath": true,
-        "**/.idea": true,
-        "**/.project": true,
-        "**/.settings": true,
-        "**/.tmp": true,
-        "**/.cache": true,
-        "**/dist": true,
-        "**/target": true,
-        "**/build": true,
-        "**/node_modules": true,
-        "**/__pycache__": true,
-        "**/.pyenv": true,
-        "**/.venv": true
-    },
+  // hide files and folders
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.factorypath": true,
+    "**/.idea": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.tmp": true,
+    "**/.cache": true,
+    "**/dist": true,
+    "**/target": true,
+    "**/build": true,
+    "**/node_modules": true,
+    "**/__pycache__": true,
+    "**/.pyenv": true,
+    "**/.venv": true
+  },
 
-    // formatters
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
+  // formatters
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
 
-    // javascript
-    "javascript.updateImportsOnFileMove.enabled": "always",
+  // javascript
+  "javascript.updateImportsOnFileMove.enabled": "always",
 
-    // lua
-    "pixelbyte.love2d.runOnSave": false,
-    "Lua.telemetry.enable": false,
-    "Lua.diagnostics.globals": ["love"]
+  // golang
+  "go.useLanguageServer": true
 }

@@ -1,8 +1,5 @@
 {
+    "python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": true,
-    "python.venvFolders": [
-        ".venv",
-        ".pyenv"
-    ]
+    "python.linting.flake8Enabled": true
 }

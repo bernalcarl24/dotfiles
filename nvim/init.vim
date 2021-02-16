@@ -30,7 +30,6 @@ Plug 'wellle/targets.vim'
 
 " custom commands
 Plug 'tpope/vim-fugitive'
-Plug 'vim-scripts/a.vim'
 
 " language support
 Plug 'sheerun/vim-polyglot'
@@ -98,7 +97,6 @@ aug QFClose
 aug END
 
 """ shortcuts
-
 nnoremap <silent><space><space> :noh<cr>
 nnoremap <silent><c-s> :update<cr>
 nnoremap <silent><c-h> :bp<cr>
@@ -145,15 +143,13 @@ let g:UltiSnipsJumpForwardTrigger = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 
 """ coc settings
-
 let g:coc_global_extensions = [
-    \ 'coc-tsserver',
-    \ 'coc-python',
-    \ 'coc-pyright',
-    \ 'coc-json',
-    \ 'coc-go',
     \ 'coc-clangd',
     \ 'coc-cmake',
+    \ 'coc-go',
+    \ 'coc-tsserver',
+    \ 'coc-pyright',
+    \ 'coc-json',
     \ 'coc-sql',
     \ 'coc-snippets',
     \ 'coc-css',

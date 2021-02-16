@@ -29,8 +29,4 @@ export PATH=$HOME/bin:$PATH
 export PATH=$HOME/scripts:$PATH
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/carlbernal/.sdkman"
-[[ -s "/home/carlbernal/.sdkman/bin/sdkman-init.sh" ]] && source "/home/carlbernal/.sdkman/bin/sdkman-init.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
