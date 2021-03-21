@@ -86,7 +86,4 @@
 
   // javascript
   "javascript.updateImportsOnFileMove.enabled": "always",
-
-  // golang
-  "go.useLanguageServer": true
 }
