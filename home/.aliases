@@ -1,5 +1,4 @@
 alias v=nvim
-alias p=podman
 alias clipboard='xclip -sel clip'
 alias c=clear
 alias t=tmux
@@ -17,3 +16,7 @@ alias gc="git commit"
 alias gd="git diff"
 alias gl="git log --oneline | head -20 | cat"
 alias gss="git status -s"
+
+# podman
+alias p=podman
+alias pstop="podman ps --filter "status=exited""

@@ -29,4 +29,9 @@ if [[ -z ${FLASK_ENV} ]]; then
 	export FLASK_ENV=development
 fi
 
+if [[ -z ${FLASK_DEBUG} ]]; then
+	echo "FLASK_DEBUG variable missing. setting it now..."
+	export FLASK_DEBUG=1
+fi
+
 flask run

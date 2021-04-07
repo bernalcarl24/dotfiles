@@ -37,7 +37,10 @@ Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'SirVer/ultisnips'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
+
+" framework support
+Plug 'tpope/vim-rails'
 
 call plug#end()
 
@@ -104,19 +107,22 @@ nnoremap <silent><c-l> :bn<cr>
 nnoremap == :FormatCode<cr>
 nmap R <plug>(coc-rename)
 
-" vim-go overrides
-" autocmd FileType go nnoremap <buffer> == :GoFmt<cr>
-" autocmd FileType go nnoremap <buffer> R :GoRename<cr>
+" ruby overrides
+autocmd FileType ruby nnoremap <buffer> == :call CocAction('format')<cr>
+
+" go overrides
+autocmd FileType go nnoremap <buffer> == :GoFmt<cr>
+autocmd FileType go nnoremap <buffer> R :GoRename<cr>
 
 " coc diagnostics
 nmap <silent><c-m> <Plug>(coc-diagnostic-next)
 nmap <silent><c-n> <Plug>(coc-diagnostic-prev)
 
-" " coc goto code navigations
-" nmap <silent>gd <Plug>(coc-definition)
-" nmap <silent>gy <Plug>(coc-type-definition)
-" nmap <silent>gi <Plug>(coc-implementation)
-" nmap <silent>gr <Plug>(coc-references)
+" coc goto code navigations
+nmap <silent>gd <Plug>(coc-definition)
+nmap <silent>gy <Plug>(coc-type-definition)
+nmap <silent>gi <Plug>(coc-implementation)
+nmap <silent>gr <Plug>(coc-references)
 
 """ plugins settings
 
@@ -124,14 +130,14 @@ nmap <silent><c-n> <Plug>(coc-diagnostic-prev)
 let g:python_highlight_all = 1
 let g:python3_host_prog = "/usr/bin/python3"
 
-" " golang
-" let g:go_code_completion_enabled = 0
-" let g:go_doc_keywordprg_enabled = 0
-" let g:go_def_mapping_enabled = 0
-" let g:go_play_open_browser = 0
-" let g:go_fmt_autosave = 0
-" let g:go_list_type = "quickfix"
-" let g:go_fmt_command = "goimports"
+" golang
+let g:go_code_completion_enabled = 0
+let g:go_doc_keywordprg_enabled = 0
+let g:go_def_mapping_enabled = 0
+let g:go_play_open_browser = 0
+let g:go_fmt_autosave = 0
+let g:go_list_type = "quickfix"
+let g:go_fmt_command = "goimports"
 
 " emmet
 let g:user_emmet_install_global = 0
@@ -144,7 +150,6 @@ let g:UltiSnipsJumpForwardTrigger = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 
 """ coc settings
-" \ 'coc-go',
 let g:coc_global_extensions = [
     \ 'coc-clangd',
     \ 'coc-cmake',
@@ -155,6 +160,8 @@ let g:coc_global_extensions = [
     \ 'coc-snippets',
     \ 'coc-css',
     \ 'coc-yaml',
+    \ 'coc-go',
+    \ 'coc-solargraph',
     \]
 
 " use tab for completion
