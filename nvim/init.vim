@@ -107,6 +107,9 @@ nnoremap <silent><c-l> :bn<cr>
 nnoremap == :FormatCode<cr>
 nmap R <plug>(coc-rename)
 
+" javascript overrides
+autocmd FileType javascript nnoremap <buffer> == :FormatCode prettier<cr>
+
 " ruby overrides
 autocmd FileType ruby nnoremap <buffer> == :call CocAction('format')<cr>
 
@@ -141,7 +144,7 @@ let g:go_fmt_command = "goimports"
 
 " emmet
 let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+autocmd FileType html,css,vue EmmetInstall
 let g:user_emmet_leader_key=','
 
 " snippets
@@ -162,6 +165,7 @@ let g:coc_global_extensions = [
     \ 'coc-yaml',
     \ 'coc-go',
     \ 'coc-solargraph',
+    \ 'coc-vetur',
     \]
 
 " use tab for completion

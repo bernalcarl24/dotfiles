@@ -3,6 +3,7 @@ alias clipboard='xclip -sel clip'
 alias c=clear
 alias t=tmux
 alias py=python3
+alias open=xdg-open
 
 alias l='ls -1X \
 -I "__pycache__" \
