@@ -8,6 +8,8 @@ Plug 'psliwka/vim-smoothie'
 " vim improvements
 Plug 'tpope/vim-vinegar'
 Plug 'justinmk/vim-sneak'
+Plug 'srstevenson/vim-picker'
+Plug 'ludovicchabant/vim-gutentags'
 
 " visual improvements
 Plug 'airblade/vim-gitgutter'
@@ -35,12 +37,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
-Plug 'SirVer/ultisnips'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
 
 " framework support
 Plug 'tpope/vim-rails'
+Plug 'niftylettuce/vim-jinja'
 
 call plug#end()
 
@@ -107,13 +109,18 @@ nnoremap <silent><c-l> :bn<cr>
 nnoremap == :FormatCode<cr>
 nmap R <plug>(coc-rename)
 
+" fuzzy
+nmap <silent><c-p> <Plug>(PickerEdit)
+nmap <silent><c-o> <Plug>(PickerBuffer)
+nmap <silent><c-i> <Plug>(PickerTag)
+
 " javascript overrides
 autocmd FileType javascript nnoremap <buffer> == :FormatCode prettier<cr>
 
 " ruby overrides
 autocmd FileType ruby nnoremap <buffer> == :call CocAction('format')<cr>
 
-" go overrides
+" golang overrides
 autocmd FileType go nnoremap <buffer> == :GoFmt<cr>
 autocmd FileType go nnoremap <buffer> R :GoRename<cr>
 
@@ -142,15 +149,26 @@ let g:go_fmt_autosave = 0
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
 
+" markdown
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_toml_frontmatter = 1
+let g:vim_markdown_json_frontmatter = 1
+
 " emmet
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,vue EmmetInstall
+autocmd FileType html,css,vue,jinja EmmetInstall
 let g:user_emmet_leader_key=','
 
-" snippets
-let g:UltiSnipsExpandTrigger = '<nop>'
-let g:UltiSnipsJumpForwardTrigger = '<c-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+" fuzzy
+let g:picker_custom_find_executable = 'ag'
+let g:picker_custom_find_flags = 'ag . --silent -l 
+            \ --ignore node_modules 
+            \ --ignore .git 
+            \ --ignore dist 
+            \ --ignore target 
+            \ --ignore __pycache__ 
+            \--ignore build 
+            \-g ""'
 
 """ coc settings
 let g:coc_global_extensions = [
@@ -160,7 +178,6 @@ let g:coc_global_extensions = [
     \ 'coc-pyright',
     \ 'coc-json',
     \ 'coc-sql',
-    \ 'coc-snippets',
     \ 'coc-css',
     \ 'coc-yaml',
     \ 'coc-go',

@@ -2,6 +2,7 @@
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
+    "python.analysis.typeCheckingMode": "off",
     "solargraph.diagnostics": true,
     "solargraph.formatting": true
 }
