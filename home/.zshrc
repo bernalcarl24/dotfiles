@@ -18,14 +18,6 @@ source ~/.aliases
 # python3
 export PATH=$HOME/.local/bin:$PATH
 
-# golang
-export PATH=/usr/local/go/bin:$PATH
-export PATH=$HOME/go/bin:$PATH
-
-# ruby
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
 # personal bin
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/scripts:$PATH

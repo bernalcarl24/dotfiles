@@ -63,7 +63,7 @@
     },
     // Open command pallete
     {
-        "key": "alt+2",
+        "key": "ctrl+o",
         "command": "workbench.action.showCommands"
     }
 ]
