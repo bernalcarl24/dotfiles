@@ -43,17 +43,9 @@
         "key": "ctrl+tab",
         "command": "workbench.action.nextEditor"
     },
-    {
-        "key": "ctrl+l",
-        "command": "workbench.action.nextEditor"
-    },
     // Go to prev tab
     {
         "key": "ctrl+shift+tab",
-        "command": "workbench.action.previousEditor"
-    },
-    {
-        "key": "ctrl+j",
         "command": "workbench.action.previousEditor"
     },
     // Toggle sidebar
@@ -63,7 +55,32 @@
     },
     // Open command pallete
     {
-        "key": "ctrl+o",
+        "key": "ctrl+i",
         "command": "workbench.action.showCommands"
+    },
+    // Remove all zoom keybindings
+    {
+        "key": "ctrl+numpad_add",
+        "command": "-workbench.action.zoomIn"
+    },
+    {
+        "key": "ctrl+shift+=",
+        "command": "-workbench.action.zoomIn"
+    },
+    {
+        "key": "ctrl+numpad0",
+        "command": "-workbench.action.zoomReset"
+    },
+    {
+        "key": "ctrl+=",
+        "command": "-workbench.action.zoomIn"
+    },
+    {
+        "key": "ctrl+numpad_subtract",
+        "command": "-workbench.action.zoomOut"
+    },
+    {
+        "key": "ctrl+-",
+        "command": "-workbench.action.zoomOut"
     }
 ]

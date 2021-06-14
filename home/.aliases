@@ -20,4 +20,3 @@ alias gss="git status -s"
 
 # podman
 alias p=podman
-alias pstop="podman ps --filter "status=exited""

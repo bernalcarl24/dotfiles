@@ -3,7 +3,6 @@ set surround
 set commentary
 set ReplaceWithRegister
 set textobj-entire
-set highlightedyank
 
 " basics
 set number
@@ -24,28 +23,22 @@ set showmode
 
 " intellij keymaps
 nnoremap == :action ReformatCode<cr>
+
+nnoremap <space><space> :noh<cr>
+
 nnoremap <c-w> :action CloseContent<cr>
 nnoremap <c-tab> :action NextTab<cr>
-nnoremap <c-l> :action NextTab<cr>
 nnoremap <c-s-tab> :action PreviousTab<cr>
-nnoremap <c-h> :action PreviousTab<cr>
 nnoremap <c-p> :action SearchEverywhere<cr>
 
 nnoremap gd :action GotoDeclaration<cr>
-nnoremap gf :action GotoFile<cr>
-nnoremap gs :action GotoSymbol<cr>
-nnoremap gt :action GotoTest<cr>
 nnoremap gi :action GotoImplementation<cr>
+nnoremap gt :action GotoTest<cr>
 
+nnoremap <c-i> :action Generate<cr>
 nnoremap <c-m> :action GotoNextError<cr>
 nnoremap <c-n> :action GotoPreviousError<cr>
 
 nnoremap R :action RenameElement<cr>
-nnoremap U :action FindUsages<cr>
-
-nnoremap ! :action Run<cr>
-nnoremap @ :action Debug<cr>
-nnoremap S :action Stop<cr>
-nnoremap B :action ToggleLineBreakpoint<cr>
 
 nnoremap <c-s-t> :action ReopenClosedTab<cr>

@@ -1,6 +1,16 @@
 {
+    // coc
+    "codeLens.enable": false,
+    "coc.source.around.firstMatch": false,
+    "coc.source.buffer.firstMatch": false,
+
+    // python
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
-    "python.analysis.typeCheckingMode": "off"
+    "python.analysis.typeCheckingMode": "off",
+
+    // javascript
+    "javascript.referencesCodeLens.enable": false,
+    "typescript.referencesCodeLens.enable": false
 }

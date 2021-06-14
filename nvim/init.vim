@@ -1,13 +1,11 @@
 call plug#begin('~/.vim/plugged')
 
 " misc
-Plug 'mattn/emmet-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'psliwka/vim-smoothie'
 
 " vim improvements
 Plug 'tpope/vim-vinegar'
-Plug 'justinmk/vim-sneak'
 Plug 'srstevenson/vim-picker'
 
 " visual improvements
@@ -30,17 +28,8 @@ Plug 'kana/vim-textobj-entire'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
 
-" custom commands
-Plug 'tpope/vim-fugitive'
-
 " language support
 Plug 'sheerun/vim-polyglot'
-Plug 'google/vim-maktaba'
-Plug 'google/vim-codefmt'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" framework support
-Plug 'niftylettuce/vim-jinja'
 
 call plug#end()
 
@@ -90,60 +79,27 @@ set shortmess+=c
 autocmd CursorMoved * exe printf('match HiUnderCursor /\V\<%s\>/',
 			\ escape(expand('<cword>'), '/\'))
 
-" quickfix window
-au FileType qf setlocal nonumber
-au FileType qf setlocal norelativenumber
-au FileType qf setlocal signcolumn=no
-au FileType qf setlocal colorcolumn=
-aug QFClose
-  au!
-  au WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
-aug END
-
-" custom tab settings
-autocmd FileType javascript setlocal ts=2 sw=2 sts=2
-autocmd FileType css setlocal ts=2 sw=2 sts=2
+" netrw
+autocmd FileType netrw setl bufhidden=wipe
+let g:netrw_fastbrowse = 0
 
 """ shortcuts
+nnoremap <silent>\ :bd<cr>
 nnoremap <silent><space><space> :noh<cr>
 nnoremap <silent><c-s> :update<cr>
 nnoremap <silent><c-h> :bp<cr>
 nnoremap <silent><c-l> :bn<cr>
-nnoremap == :FormatCode<cr>
-nmap R <plug>(coc-rename)
 
 " fuzzy
 nmap <silent><c-p> <Plug>(PickerEdit)
 nmap <silent><c-o> <Plug>(PickerBuffer)
 
-" javascript overrides
-autocmd FileType javascript nnoremap <buffer> == :FormatCode prettier<cr>
-
-" coc diagnostics
-nmap <silent><c-m> <Plug>(coc-diagnostic-next)
-nmap <silent><c-n> <Plug>(coc-diagnostic-prev)
-
-" coc goto code navigations
-nmap <silent>gd <Plug>(coc-definition)
-nmap <silent>gy <Plug>(coc-type-definition)
-nmap <silent>gi <Plug>(coc-implementation)
-nmap <silent>gr <Plug>(coc-references)
-
 """ plugins settings
-
-" python
-let g:python_highlight_all = 1
-let g:python3_host_prog = "/usr/bin/python3"
 
 " markdown
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_toml_frontmatter = 1
 let g:vim_markdown_json_frontmatter = 1
-
-" emmet
-let g:user_emmet_install_global = 0
-autocmd FileType html,css,jinja,javascript EmmetInstall
-let g:user_emmet_leader_key=','
 
 " fuzzy
 let g:picker_custom_find_executable = 'ag'
@@ -168,47 +124,6 @@ let g:lightline = {
             \   'gitbranch': 'gitbranch#name'
             \ },
             \ }
-
-""" coc settings
-let g:coc_global_extensions = [
-    \ 'coc-clangd',
-    \ 'coc-cmake',
-    \ 'coc-tsserver',
-    \ 'coc-pyright',
-    \ 'coc-json',
-    \ 'coc-sql',
-    \ 'coc-css',
-    \ 'coc-yaml',
-    \ 'coc-eslint',
-    \]
-
-" use tab for completion
-inoremap <silent><expr> <TAB>
-			\ pumvisible() ? "\<C-n>" :
-			\ <SID>check_back_space() ? "\<TAB>" :
-			\ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" use enter to confirm autocompletion
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-" trigger completion
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" use preview window for documentation
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-	if (index(['vim','help'], &filetype) >= 0)
-		execute 'h '.expand('<cword>')
-	else
-		call CocAction('doHover')
-	endif
-endfunction
 
 """ color theme helper groups
 
